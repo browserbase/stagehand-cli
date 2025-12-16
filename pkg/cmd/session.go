@@ -7,10 +7,10 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/stainless-sdks/stagehand-cli/internal/apiquery"
-	"github.com/stainless-sdks/stagehand-cli/internal/requestflag"
-	"github.com/stainless-sdks/stagehand-go"
-	"github.com/stainless-sdks/stagehand-go/option"
+	"github.com/browserbase/stagehand-cli/internal/apiquery"
+	"github.com/browserbase/stagehand-cli/internal/requestflag"
+	"github.com/browserbase/stagehand-go"
+	"github.com/browserbase/stagehand-go/option"
 	"github.com/tidwall/gjson"
 	"github.com/urfave/cli/v3"
 )
@@ -189,34 +189,24 @@ var sessionsStart = cli.Command{
 	Usage: "Initializes a new Stagehand session with a browser instance. Returns a session\nID that must be used for all subsequent requests.",
 	Flags: []cli.Flag{
 		&requestflag.Flag[string]{
-			Name:     "env",
-			Usage:    "Environment to run the browser in",
-			BodyPath: "env",
+			Name:     "browserbase-api-key",
+			Usage:    "API key for Browserbase Cloud",
+			BodyPath: "BROWSERBASE_API_KEY",
 		},
 		&requestflag.Flag[string]{
-			Name:     "api-key",
-			Usage:    "API key for Browserbase (required when env=BROWSERBASE)",
-			BodyPath: "apiKey",
+			Name:     "browserbase-project-id",
+			Usage:    "Project ID for Browserbase",
+			BodyPath: "BROWSERBASE_PROJECT_ID",
 		},
 		&requestflag.Flag[int64]{
 			Name:     "dom-settle-timeout",
 			Usage:    "Timeout in ms to wait for DOM to settle",
 			BodyPath: "domSettleTimeout",
 		},
-		&requestflag.Flag[any]{
-			Name:     "local-browser-launch-options",
-			Usage:    "Options for local browser launch",
-			BodyPath: "localBrowserLaunchOptions",
-		},
 		&requestflag.Flag[string]{
 			Name:     "model",
-			Usage:    "AI model to use for actions",
+			Usage:    "AI model to use for actions (must be prefixed with provider/)",
 			BodyPath: "model",
-		},
-		&requestflag.Flag[string]{
-			Name:     "project-id",
-			Usage:    "Project ID for Browserbase (required when env=BROWSERBASE)",
-			BodyPath: "projectId",
 		},
 		&requestflag.Flag[bool]{
 			Name:     "self-heal",

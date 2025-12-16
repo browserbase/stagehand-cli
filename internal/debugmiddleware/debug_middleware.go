@@ -18,7 +18,11 @@ type (
 const redactedPlaceholder = "<REDACTED>"
 
 // Headers known to contain sensitive information like an API key.
-var sensitiveHeaders = []string{}
+var sensitiveHeaders = []string{
+	"x-bb-api-key",
+	"x-bb-project-id",
+	"x-model-api-key",
+}
 
 // RequestLogger is a middleware that logs HTTP requests and responses.
 type RequestLogger struct {

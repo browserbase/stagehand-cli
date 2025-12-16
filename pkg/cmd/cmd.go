@@ -64,10 +64,6 @@ func init() {
 				Name:  "transform-error",
 				Usage: "The GJSON transformation for errors.",
 			},
-			&cli.StringFlag{
-				Name:  "environment",
-				Usage: "Set the environment for API requests",
-			},
 		},
 		Commands: []*cli.Command{
 			{
