@@ -9,8 +9,8 @@ import (
 	"net/http"
 	"os"
 
-	"github.com/stainless-sdks/stagehand-cli/pkg/cmd"
-	"github.com/stainless-sdks/stagehand-go"
+	"github.com/browserbase/stagehand-cli/pkg/cmd"
+	"github.com/browserbase/stagehand-go"
 	"github.com/tidwall/gjson"
 )
 

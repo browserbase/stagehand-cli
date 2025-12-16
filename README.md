@@ -1,6 +1,6 @@
 # Stagehand CLI
 
-The official CLI for the [Stagehand REST API](https://browserbase.com).
+The official CLI for the [Stagehand REST API](https://docs.stagehand.dev).
 
 It is generated with [Stainless](https://www.stainless.com/).
 
@@ -8,15 +8,21 @@ It is generated with [Stainless](https://www.stainless.com/).
 
 ### Installing with Go
 
+<!-- x-release-please-start-version -->
+
 ```sh
-go install 'github.com/stainless-sdks/stagehand-cli/cmd/stagehand@latest'
+go install 'github.com/browserbase/stagehand-cli/cmd/stagehand@latest'
 ```
 
 ### Running Locally
 
+<!-- x-release-please-start-version -->
+
 ```sh
 go run cmd/stagehand/main.go
 ```
+
+<!-- x-release-please-end -->
 
 ## Usage
 
@@ -27,8 +33,9 @@ stagehand [resource] [command] [flags]
 ```
 
 ```sh
-stagehand sessions start \
-  --env LOCAL
+stagehand sessions act \
+  --session-id 182bd5e5-6e1a-4fe4-a799-aa6d9a6ab26e \
+  --input 'click the first link on the page'
 ```
 
 For details about specific commands, use the `--help` flag.

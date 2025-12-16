@@ -13,8 +13,8 @@ import (
 	"strings"
 	"syscall"
 
-	"github.com/stainless-sdks/stagehand-cli/pkg/jsonview"
-	"github.com/stainless-sdks/stagehand-go/option"
+	"github.com/browserbase/stagehand-cli/pkg/jsonview"
+	"github.com/browserbase/stagehand-go/option"
 
 	"github.com/itchyny/json2yaml"
 	"github.com/tidwall/gjson"
@@ -38,18 +38,6 @@ func getDefaultRequestOptions(cmd *cli.Command) []option.RequestOption {
 	// Override base URL if the --base-url flag is provided
 	if baseURL := cmd.String("base-url"); baseURL != "" {
 		opts = append(opts, option.WithBaseURL(baseURL))
-	}
-
-	// Set environment if the --environment flag is provided
-	if environment := cmd.String("environment"); environment != "" {
-		switch environment {
-		case "production":
-			opts = append(opts, option.WithEnvironmentProduction())
-		case "environment_1":
-			opts = append(opts, option.WithEnvironmentEnvironment1())
-		default:
-			log.Fatalf("Unknown environment: %s. Valid environments are: production, environment_1", environment)
-		}
 	}
 
 	return opts
