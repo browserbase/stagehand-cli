@@ -8,11 +8,11 @@ import (
 	"mime/multipart"
 	"os"
 
-	"github.com/stainless-sdks/stagehand-cli/internal/apiform"
-	"github.com/stainless-sdks/stagehand-cli/internal/apiquery"
-	"github.com/stainless-sdks/stagehand-cli/internal/debugmiddleware"
-	"github.com/stainless-sdks/stagehand-cli/internal/requestflag"
-	"github.com/stainless-sdks/stagehand-go/option"
+	"github.com/browserbase/stagehand-cli/internal/apiform"
+	"github.com/browserbase/stagehand-cli/internal/apiquery"
+	"github.com/browserbase/stagehand-cli/internal/debugmiddleware"
+	"github.com/browserbase/stagehand-cli/internal/requestflag"
+	"github.com/browserbase/stagehand-go/option"
 
 	"github.com/goccy/go-yaml"
 	"github.com/urfave/cli/v3"
