@@ -34,7 +34,7 @@ stagehand [resource] [command] [flags]
 
 ```sh
 stagehand sessions act \
-  --session-id 182bd5e5-6e1a-4fe4-a799-aa6d9a6ab26e \
+  --session-id 00000000-your-session-id-000000000000 \
   --input 'click the first link on the page'
 ```
 
