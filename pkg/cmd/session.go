@@ -8,6 +8,7 @@ import (
 	"os"
 
 	"github.com/browserbase/stagehand-cli/internal/apiquery"
+	"github.com/browserbase/stagehand-cli/internal/binaryparam"
 	"github.com/browserbase/stagehand-cli/internal/requestflag"
 	"github.com/browserbase/stagehand-go"
 	"github.com/browserbase/stagehand-go/option"
@@ -242,6 +243,13 @@ func handleSessionsAct(ctx context.Context, cmd *cli.Command) error {
 	if len(unusedArgs) > 0 {
 		return fmt.Errorf("Unexpected extra arguments: %v", unusedArgs)
 	}
+
+	bodyReader, stdinInUse, err := binaryparam.FileOrStdin(os.Stdin, cmd.Value("body").(any))
+	if err != nil {
+		return fmt.Errorf("Failed on param '%s': %w", "body", err)
+	}
+	defer bodyReader.Close()
+
 	params := stagehand.SessionActParams{}
 
 	options, err := flagOptions(
@@ -249,6 +257,7 @@ func handleSessionsAct(ctx context.Context, cmd *cli.Command) error {
 		apiquery.NestedQueryFormatBrackets,
 		apiquery.ArrayQueryFormatComma,
 		ApplicationJSON,
+		stdinInUse,
 	)
 	if err != nil {
 		return err
@@ -282,6 +291,7 @@ func handleSessionsEnd(ctx context.Context, cmd *cli.Command) error {
 	if len(unusedArgs) > 0 {
 		return fmt.Errorf("Unexpected extra arguments: %v", unusedArgs)
 	}
+
 	params := stagehand.SessionEndParams{}
 
 	options, err := flagOptions(
@@ -289,6 +299,7 @@ func handleSessionsEnd(ctx context.Context, cmd *cli.Command) error {
 		apiquery.NestedQueryFormatBrackets,
 		apiquery.ArrayQueryFormatComma,
 		EmptyBody,
+		false,
 	)
 	if err != nil {
 		return err
@@ -322,6 +333,13 @@ func handleSessionsExecuteAgent(ctx context.Context, cmd *cli.Command) error {
 	if len(unusedArgs) > 0 {
 		return fmt.Errorf("Unexpected extra arguments: %v", unusedArgs)
 	}
+
+	bodyReader, stdinInUse, err := binaryparam.FileOrStdin(os.Stdin, cmd.Value("body").(any))
+	if err != nil {
+		return fmt.Errorf("Failed on param '%s': %w", "body", err)
+	}
+	defer bodyReader.Close()
+
 	params := stagehand.SessionExecuteAgentParams{}
 
 	options, err := flagOptions(
@@ -329,6 +347,7 @@ func handleSessionsExecuteAgent(ctx context.Context, cmd *cli.Command) error {
 		apiquery.NestedQueryFormatBrackets,
 		apiquery.ArrayQueryFormatComma,
 		ApplicationJSON,
+		stdinInUse,
 	)
 	if err != nil {
 		return err
@@ -362,6 +381,13 @@ func handleSessionsExtract(ctx context.Context, cmd *cli.Command) error {
 	if len(unusedArgs) > 0 {
 		return fmt.Errorf("Unexpected extra arguments: %v", unusedArgs)
 	}
+
+	bodyReader, stdinInUse, err := binaryparam.FileOrStdin(os.Stdin, cmd.Value("body").(any))
+	if err != nil {
+		return fmt.Errorf("Failed on param '%s': %w", "body", err)
+	}
+	defer bodyReader.Close()
+
 	params := stagehand.SessionExtractParams{}
 
 	options, err := flagOptions(
@@ -369,6 +395,7 @@ func handleSessionsExtract(ctx context.Context, cmd *cli.Command) error {
 		apiquery.NestedQueryFormatBrackets,
 		apiquery.ArrayQueryFormatComma,
 		ApplicationJSON,
+		stdinInUse,
 	)
 	if err != nil {
 		return err
@@ -402,6 +429,13 @@ func handleSessionsNavigate(ctx context.Context, cmd *cli.Command) error {
 	if len(unusedArgs) > 0 {
 		return fmt.Errorf("Unexpected extra arguments: %v", unusedArgs)
 	}
+
+	bodyReader, stdinInUse, err := binaryparam.FileOrStdin(os.Stdin, cmd.Value("body").(any))
+	if err != nil {
+		return fmt.Errorf("Failed on param '%s': %w", "body", err)
+	}
+	defer bodyReader.Close()
+
 	params := stagehand.SessionNavigateParams{}
 
 	options, err := flagOptions(
@@ -409,6 +443,7 @@ func handleSessionsNavigate(ctx context.Context, cmd *cli.Command) error {
 		apiquery.NestedQueryFormatBrackets,
 		apiquery.ArrayQueryFormatComma,
 		ApplicationJSON,
+		stdinInUse,
 	)
 	if err != nil {
 		return err
@@ -442,6 +477,13 @@ func handleSessionsObserve(ctx context.Context, cmd *cli.Command) error {
 	if len(unusedArgs) > 0 {
 		return fmt.Errorf("Unexpected extra arguments: %v", unusedArgs)
 	}
+
+	bodyReader, stdinInUse, err := binaryparam.FileOrStdin(os.Stdin, cmd.Value("body").(any))
+	if err != nil {
+		return fmt.Errorf("Failed on param '%s': %w", "body", err)
+	}
+	defer bodyReader.Close()
+
 	params := stagehand.SessionObserveParams{}
 
 	options, err := flagOptions(
@@ -449,6 +491,7 @@ func handleSessionsObserve(ctx context.Context, cmd *cli.Command) error {
 		apiquery.NestedQueryFormatBrackets,
 		apiquery.ArrayQueryFormatComma,
 		ApplicationJSON,
+		stdinInUse,
 	)
 	if err != nil {
 		return err
@@ -479,6 +522,13 @@ func handleSessionsStart(ctx context.Context, cmd *cli.Command) error {
 	if len(unusedArgs) > 0 {
 		return fmt.Errorf("Unexpected extra arguments: %v", unusedArgs)
 	}
+
+	bodyReader, stdinInUse, err := binaryparam.FileOrStdin(os.Stdin, cmd.Value("body").(any))
+	if err != nil {
+		return fmt.Errorf("Failed on param '%s': %w", "body", err)
+	}
+	defer bodyReader.Close()
+
 	params := stagehand.SessionStartParams{}
 
 	options, err := flagOptions(
@@ -486,6 +536,7 @@ func handleSessionsStart(ctx context.Context, cmd *cli.Command) error {
 		apiquery.NestedQueryFormatBrackets,
 		apiquery.ArrayQueryFormatComma,
 		ApplicationJSON,
+		stdinInUse,
 	)
 	if err != nil {
 		return err
