@@ -1,5 +1,31 @@
 # Changelog
 
+## 0.4.0 (2025-12-17)
+
+Full Changelog: [v0.3.0...v0.4.0](https://github.com/browserbase/stagehand-cli/compare/v0.3.0...v0.4.0)
+
+### Features
+
+* add better suggests when commands don't match ([3fec112](https://github.com/browserbase/stagehand-cli/commit/3fec112c48ac352b51674c238cde656b94768d81))
+* **api:** manual updates ([5f6d002](https://github.com/browserbase/stagehand-cli/commit/5f6d002df5d0d7af899eb781de3d0be11a781603))
+* **api:** manual updates ([d3f2a27](https://github.com/browserbase/stagehand-cli/commit/d3f2a279c3bd30d05c4c5bc0e42e69be9ca19424))
+* **api:** manual updates ([2f3231a](https://github.com/browserbase/stagehand-cli/commit/2f3231a7c5cd24a82abc38b7681a5262c5ef462f))
+* **api:** manual updates ([89826dd](https://github.com/browserbase/stagehand-cli/commit/89826dd991affbb83ef5aab99518a0f5e7e7515f))
+* **api:** manual updates ([9328cf3](https://github.com/browserbase/stagehand-cli/commit/9328cf3747d4c67cfde9b399af319b266cd303c3))
+* **cli:** binary request bodies ([9f71963](https://github.com/browserbase/stagehand-cli/commit/9f719638db5384797b9146a655264339d48c9606))
+
+
+### Bug Fixes
+
+* **cli:** fix compilation on Windows ([1fab784](https://github.com/browserbase/stagehand-cli/commit/1fab784920f16899a7f4dc2165b2cd1054925f57))
+* **cli:** remove `*.exe` files from customer SDK changes ([864716f](https://github.com/browserbase/stagehand-cli/commit/864716f9db37f1b601ed5753765b871d981fce01))
+* ignore .exe files ([24897d6](https://github.com/browserbase/stagehand-cli/commit/24897d6bd4f3dd5f43d1550ef9dda6f1d3fd10bb))
+
+
+### Chores
+
+* **cli:** temporarily remove `*.exe` from `.gitignore` ([a01b2ad](https://github.com/browserbase/stagehand-cli/commit/a01b2ad20f764d13e994a7301d1835ab10d489a8))
+
 ## 0.3.0 (2025-12-17)
 
 Full Changelog: [v0.2.0...v0.3.0](https://github.com/browserbase/stagehand-cli/compare/v0.2.0...v0.3.0)
