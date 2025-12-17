@@ -70,6 +70,12 @@ func init() {
 				Name:     "sessions",
 				Category: "API RESOURCE",
 				Commands: []*cli.Command{
+					&sessionsAct,
+					&sessionsEnd,
+					&sessionsExecuteAgent,
+					&sessionsExtract,
+					&sessionsNavigate,
+					&sessionsObserve,
 					&sessionsStart,
 				},
 			},
