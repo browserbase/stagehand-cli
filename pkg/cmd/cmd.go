@@ -73,7 +73,7 @@ func init() {
 				Commands: []*cli.Command{
 					&sessionsAct,
 					&sessionsEnd,
-					&sessionsExecuteAgent,
+					&sessionsExecute,
 					&sessionsExtract,
 					&sessionsNavigate,
 					&sessionsObserve,
