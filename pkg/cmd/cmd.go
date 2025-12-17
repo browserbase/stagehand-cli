@@ -23,6 +23,7 @@ func init() {
 	Command = &cli.Command{
 		Name:    "stagehand",
 		Usage:   "CLI for the stagehand API",
+		Suggest: true,
 		Version: Version,
 		Flags: []cli.Flag{
 			&cli.BoolFlag{
