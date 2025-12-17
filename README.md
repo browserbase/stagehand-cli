@@ -33,7 +33,9 @@ stagehand [resource] [command] [flags]
 ```
 
 ```sh
-stagehand sessions start
+stagehand sessions act \
+  --id id \
+  --input 'Click the login button'
 ```
 
 For details about specific commands, use the `--help` flag.
