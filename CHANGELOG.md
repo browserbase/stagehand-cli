@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.3.0 (2025-12-17)
+
+Full Changelog: [v0.2.0...v0.3.0](https://github.com/browserbase/stagehand-cli/compare/v0.2.0...v0.3.0)
+
+### Features
+
+* **api:** manual updates ([8813414](https://github.com/browserbase/stagehand-cli/commit/88134149767427d94378c6a9e56814e68db0aa41))
+
 ## 0.2.0 (2025-12-16)
 
 Full Changelog: [v0.1.0...v0.2.0](https://github.com/browserbase/stagehand-cli/compare/v0.1.0...v0.2.0)
