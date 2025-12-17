@@ -33,9 +33,7 @@ stagehand [resource] [command] [flags]
 ```
 
 ```sh
-stagehand sessions act \
-  --session-id 00000000-your-session-id-000000000000 \
-  --input 'click the first link on the page'
+stagehand sessions start
 ```
 
 For details about specific commands, use the `--help` flag.
