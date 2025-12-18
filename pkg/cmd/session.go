@@ -37,6 +37,11 @@ var sessionsAct = cli.Command{
 			Name:     "options",
 			BodyPath: "options",
 		},
+		&requestflag.Flag[bool]{
+			Name:     "stream-response",
+			Usage:    "Whether to stream the response via SSE",
+			BodyPath: "streamResponse",
+		},
 		&requestflag.Flag[string]{
 			Name:       "x-language",
 			Usage:      "Client SDK language",
@@ -116,6 +121,11 @@ var sessionsExecute = cli.Command{
 			Usage:    "Target frame ID for the agent",
 			BodyPath: "frameId",
 		},
+		&requestflag.Flag[bool]{
+			Name:     "stream-response",
+			Usage:    "Whether to stream the response via SSE",
+			BodyPath: "streamResponse",
+		},
 		&requestflag.Flag[string]{
 			Name:       "x-language",
 			Usage:      "Client SDK language",
@@ -168,6 +178,11 @@ var sessionsExtract = cli.Command{
 			Usage:    "JSON Schema defining the structure of data to extract",
 			BodyPath: "schema",
 		},
+		&requestflag.Flag[bool]{
+			Name:     "stream-response",
+			Usage:    "Whether to stream the response via SSE",
+			BodyPath: "streamResponse",
+		},
 		&requestflag.Flag[string]{
 			Name:       "x-language",
 			Usage:      "Client SDK language",
@@ -215,6 +230,11 @@ var sessionsNavigate = cli.Command{
 			Name:     "options",
 			BodyPath: "options",
 		},
+		&requestflag.Flag[bool]{
+			Name:     "stream-response",
+			Usage:    "Whether to stream the response via SSE",
+			BodyPath: "streamResponse",
+		},
 		&requestflag.Flag[string]{
 			Name:       "x-language",
 			Usage:      "Client SDK language",
@@ -261,6 +281,11 @@ var sessionsObserve = cli.Command{
 		&requestflag.Flag[any]{
 			Name:     "options",
 			BodyPath: "options",
+		},
+		&requestflag.Flag[bool]{
+			Name:     "stream-response",
+			Usage:    "Whether to stream the response via SSE",
+			BodyPath: "streamResponse",
 		},
 		&requestflag.Flag[string]{
 			Name:       "x-language",
@@ -395,22 +420,16 @@ func handleSessionsAct(ctx context.Context, cmd *cli.Command) error {
 		return err
 	}
 
-	var res []byte
-	options = append(options, option.WithResponseBodyInto(&res))
-	_, err = client.Sessions.Act(
+	stream := client.Sessions.ActStreaming(
 		ctx,
 		cmd.Value("id").(string),
 		params,
 		options...,
 	)
-	if err != nil {
-		return err
+	for stream.Next() {
+		fmt.Printf("%s\n", stream.Current().RawJSON())
 	}
-
-	obj := gjson.ParseBytes(res)
-	format := cmd.Root().String("format")
-	transform := cmd.Root().String("transform")
-	return ShowJSON(os.Stdout, "sessions act", obj, format, transform)
+	return stream.Err()
 }
 
 func handleSessionsEnd(ctx context.Context, cmd *cli.Command) error {
@@ -479,22 +498,16 @@ func handleSessionsExecute(ctx context.Context, cmd *cli.Command) error {
 		return err
 	}
 
-	var res []byte
-	options = append(options, option.WithResponseBodyInto(&res))
-	_, err = client.Sessions.Execute(
+	stream := client.Sessions.ExecuteStreaming(
 		ctx,
 		cmd.Value("id").(string),
 		params,
 		options...,
 	)
-	if err != nil {
-		return err
+	for stream.Next() {
+		fmt.Printf("%s\n", stream.Current().RawJSON())
 	}
-
-	obj := gjson.ParseBytes(res)
-	format := cmd.Root().String("format")
-	transform := cmd.Root().String("transform")
-	return ShowJSON(os.Stdout, "sessions execute", obj, format, transform)
+	return stream.Err()
 }
 
 func handleSessionsExtract(ctx context.Context, cmd *cli.Command) error {
@@ -521,22 +534,16 @@ func handleSessionsExtract(ctx context.Context, cmd *cli.Command) error {
 		return err
 	}
 
-	var res []byte
-	options = append(options, option.WithResponseBodyInto(&res))
-	_, err = client.Sessions.Extract(
+	stream := client.Sessions.ExtractStreaming(
 		ctx,
 		cmd.Value("id").(string),
 		params,
 		options...,
 	)
-	if err != nil {
-		return err
+	for stream.Next() {
+		fmt.Printf("%s\n", stream.Current().RawJSON())
 	}
-
-	obj := gjson.ParseBytes(res)
-	format := cmd.Root().String("format")
-	transform := cmd.Root().String("transform")
-	return ShowJSON(os.Stdout, "sessions extract", obj, format, transform)
+	return stream.Err()
 }
 
 func handleSessionsNavigate(ctx context.Context, cmd *cli.Command) error {
@@ -605,22 +612,16 @@ func handleSessionsObserve(ctx context.Context, cmd *cli.Command) error {
 		return err
 	}
 
-	var res []byte
-	options = append(options, option.WithResponseBodyInto(&res))
-	_, err = client.Sessions.Observe(
+	stream := client.Sessions.ObserveStreaming(
 		ctx,
 		cmd.Value("id").(string),
 		params,
 		options...,
 	)
-	if err != nil {
-		return err
+	for stream.Next() {
+		fmt.Printf("%s\n", stream.Current().RawJSON())
 	}
-
-	obj := gjson.ParseBytes(res)
-	format := cmd.Root().String("format")
-	transform := cmd.Root().String("transform")
-	return ShowJSON(os.Stdout, "sessions observe", obj, format, transform)
+	return stream.Err()
 }
 
 func handleSessionsStart(ctx context.Context, cmd *cli.Command) error {
