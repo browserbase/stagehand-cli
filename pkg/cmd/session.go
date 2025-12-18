@@ -4,6 +4,7 @@ package cmd
 
 import (
 	"context"
+	"encoding/json"
 	"fmt"
 	"os"
 
@@ -420,6 +421,8 @@ func handleSessionsAct(ctx context.Context, cmd *cli.Command) error {
 		return err
 	}
 
+	format := cmd.Root().String("format")
+	transform := cmd.Root().String("transform")
 	stream := client.Sessions.ActStreaming(
 		ctx,
 		cmd.Value("id").(string),
@@ -427,7 +430,13 @@ func handleSessionsAct(ctx context.Context, cmd *cli.Command) error {
 		options...,
 	)
 	for stream.Next() {
-		fmt.Printf("%s\n", stream.Current().RawJSON())
+		response := stream.Current()
+		jsonData, err := json.Marshal(response)
+		if err != nil {
+			return err
+		}
+		obj := gjson.ParseBytes(jsonData)
+		ShowJSON(os.Stdout, "sessions act", obj, format, transform)
 	}
 	return stream.Err()
 }
@@ -498,6 +507,8 @@ func handleSessionsExecute(ctx context.Context, cmd *cli.Command) error {
 		return err
 	}
 
+	format := cmd.Root().String("format")
+	transform := cmd.Root().String("transform")
 	stream := client.Sessions.ExecuteStreaming(
 		ctx,
 		cmd.Value("id").(string),
@@ -505,7 +516,13 @@ func handleSessionsExecute(ctx context.Context, cmd *cli.Command) error {
 		options...,
 	)
 	for stream.Next() {
-		fmt.Printf("%s\n", stream.Current().RawJSON())
+		response := stream.Current()
+		jsonData, err := json.Marshal(response)
+		if err != nil {
+			return err
+		}
+		obj := gjson.ParseBytes(jsonData)
+		ShowJSON(os.Stdout, "sessions execute", obj, format, transform)
 	}
 	return stream.Err()
 }
@@ -534,6 +551,8 @@ func handleSessionsExtract(ctx context.Context, cmd *cli.Command) error {
 		return err
 	}
 
+	format := cmd.Root().String("format")
+	transform := cmd.Root().String("transform")
 	stream := client.Sessions.ExtractStreaming(
 		ctx,
 		cmd.Value("id").(string),
@@ -541,7 +560,13 @@ func handleSessionsExtract(ctx context.Context, cmd *cli.Command) error {
 		options...,
 	)
 	for stream.Next() {
-		fmt.Printf("%s\n", stream.Current().RawJSON())
+		response := stream.Current()
+		jsonData, err := json.Marshal(response)
+		if err != nil {
+			return err
+		}
+		obj := gjson.ParseBytes(jsonData)
+		ShowJSON(os.Stdout, "sessions extract", obj, format, transform)
 	}
 	return stream.Err()
 }
@@ -612,6 +637,8 @@ func handleSessionsObserve(ctx context.Context, cmd *cli.Command) error {
 		return err
 	}
 
+	format := cmd.Root().String("format")
+	transform := cmd.Root().String("transform")
 	stream := client.Sessions.ObserveStreaming(
 		ctx,
 		cmd.Value("id").(string),
@@ -619,7 +646,13 @@ func handleSessionsObserve(ctx context.Context, cmd *cli.Command) error {
 		options...,
 	)
 	for stream.Next() {
-		fmt.Printf("%s\n", stream.Current().RawJSON())
+		response := stream.Current()
+		jsonData, err := json.Marshal(response)
+		if err != nil {
+			return err
+		}
+		obj := gjson.ParseBytes(jsonData)
+		ShowJSON(os.Stdout, "sessions observe", obj, format, transform)
 	}
 	return stream.Err()
 }
