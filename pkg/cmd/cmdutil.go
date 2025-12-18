@@ -12,7 +12,7 @@ import (
 	"strings"
 	"syscall"
 
-	"github.com/browserbase/stagehand-cli/pkg/jsonview"
+	"github.com/browserbase/stagehand-cli/internal/jsonview"
 	"github.com/browserbase/stagehand-go/option"
 
 	"github.com/itchyny/json2yaml"
