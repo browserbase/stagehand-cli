@@ -1,5 +1,19 @@
 # Changelog
 
+## 0.7.0 (2025-12-18)
+
+Full Changelog: [v0.6.0...v0.7.0](https://github.com/browserbase/stagehand-cli/compare/v0.6.0...v0.7.0)
+
+### Features
+
+* **api:** manual updates ([6fa2b0c](https://github.com/browserbase/stagehand-cli/commit/6fa2b0c504431a9299c64d814d64af1db3f97363))
+
+
+### Chores
+
+* **cli:** add `*.exe` files back to `.gitignore` ([1d5db28](https://github.com/browserbase/stagehand-cli/commit/1d5db287d87253e0332b152e9861e060992a6606))
+* **internal:** codegen related update ([2712da2](https://github.com/browserbase/stagehand-cli/commit/2712da24557b0248800a061e9bf4fbaf044643aa))
+
 ## 0.6.0 (2025-12-17)
 
 Full Changelog: [v0.5.0...v0.6.0](https://github.com/browserbase/stagehand-cli/compare/v0.5.0...v0.6.0)
