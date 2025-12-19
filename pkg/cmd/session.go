@@ -324,7 +324,7 @@ var sessionsStart = cli.Command{
 		},
 		&requestflag.Flag[float64]{
 			Name:     "act-timeout-ms",
-			Usage:    "Timeout in ms for act operations",
+			Usage:    "Timeout in ms for act operations (deprecated, v2 only)",
 			BodyPath: "actTimeoutMs",
 		},
 		&requestflag.Flag[map[string]any]{
@@ -339,10 +339,6 @@ var sessionsStart = cli.Command{
 			Name:     "browserbase-session-id",
 			Usage:    "Existing Browserbase session ID to resume",
 			BodyPath: "browserbaseSessionID",
-		},
-		&requestflag.Flag[bool]{
-			Name:     "debug-dom",
-			BodyPath: "debugDom",
 		},
 		&requestflag.Flag[float64]{
 			Name:     "dom-settle-timeout-ms",
@@ -363,13 +359,14 @@ var sessionsStart = cli.Command{
 			Usage:    "Custom system prompt for AI operations",
 			BodyPath: "systemPrompt",
 		},
-		&requestflag.Flag[int64]{
+		&requestflag.Flag[string]{
 			Name:     "verbose",
 			Usage:    "Logging verbosity level (0=quiet, 1=normal, 2=debug)",
 			BodyPath: "verbose",
 		},
 		&requestflag.Flag[bool]{
 			Name:     "wait-for-captcha-solves",
+			Usage:    "Wait for captcha solves (deprecated, v2 only)",
 			BodyPath: "waitForCaptchaSolves",
 		},
 		&requestflag.Flag[string]{
