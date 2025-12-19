@@ -34,7 +34,7 @@ var sessionsAct = cli.Command{
 			Usage:    "Target frame ID for the action",
 			BodyPath: "frameId",
 		},
-		&requestflag.Flag[any]{
+		&requestflag.Flag[map[string]any]{
 			Name:     "options",
 			BodyPath: "options",
 		},
@@ -109,11 +109,11 @@ var sessionsExecute = cli.Command{
 			Name:  "id",
 			Usage: "Unique session identifier",
 		},
-		&requestflag.Flag[any]{
+		&requestflag.Flag[map[string]any]{
 			Name:     "agent-config",
 			BodyPath: "agentConfig",
 		},
-		&requestflag.Flag[any]{
+		&requestflag.Flag[map[string]any]{
 			Name:     "execute-options",
 			BodyPath: "executeOptions",
 		},
@@ -170,11 +170,11 @@ var sessionsExtract = cli.Command{
 			Usage:    "Natural language instruction for what to extract",
 			BodyPath: "instruction",
 		},
-		&requestflag.Flag[any]{
+		&requestflag.Flag[map[string]any]{
 			Name:     "options",
 			BodyPath: "options",
 		},
-		&requestflag.Flag[any]{
+		&requestflag.Flag[map[string]any]{
 			Name:     "schema",
 			Usage:    "JSON Schema defining the structure of data to extract",
 			BodyPath: "schema",
@@ -227,7 +227,7 @@ var sessionsNavigate = cli.Command{
 			Usage:    "Target frame ID for the navigation",
 			BodyPath: "frameId",
 		},
-		&requestflag.Flag[any]{
+		&requestflag.Flag[map[string]any]{
 			Name:     "options",
 			BodyPath: "options",
 		},
@@ -279,7 +279,7 @@ var sessionsObserve = cli.Command{
 			Usage:    "Natural language instruction for what actions to find",
 			BodyPath: "instruction",
 		},
-		&requestflag.Flag[any]{
+		&requestflag.Flag[map[string]any]{
 			Name:     "options",
 			BodyPath: "options",
 		},
@@ -327,11 +327,11 @@ var sessionsStart = cli.Command{
 			Usage:    "Timeout in ms for act operations",
 			BodyPath: "actTimeoutMs",
 		},
-		&requestflag.Flag[any]{
+		&requestflag.Flag[map[string]any]{
 			Name:     "browser",
 			BodyPath: "browser",
 		},
-		&requestflag.Flag[any]{
+		&requestflag.Flag[map[string]any]{
 			Name:     "browserbase-session-create-params",
 			BodyPath: "browserbaseSessionCreateParams",
 		},
