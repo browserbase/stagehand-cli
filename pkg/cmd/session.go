@@ -359,7 +359,7 @@ var sessionsStart = cli.Command{
 			Usage:    "Custom system prompt for AI operations",
 			BodyPath: "systemPrompt",
 		},
-		&requestflag.Flag[string]{
+		&requestflag.Flag[float64]{
 			Name:     "verbose",
 			Usage:    "Logging verbosity level (0=quiet, 1=normal, 2=debug)",
 			BodyPath: "verbose",
