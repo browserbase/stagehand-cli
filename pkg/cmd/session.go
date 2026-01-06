@@ -76,6 +76,10 @@ var sessionsEnd = cli.Command{
 			Name:  "id",
 			Usage: "Unique session identifier",
 		},
+		&requestflag.Flag[any]{
+			Name:     "-force-body",
+			BodyPath: "_forceBody",
+		},
 		&requestflag.Flag[string]{
 			Name:       "x-language",
 			Usage:      "Client SDK language",
@@ -455,7 +459,7 @@ func handleSessionsEnd(ctx context.Context, cmd *cli.Command) error {
 		cmd,
 		apiquery.NestedQueryFormatBrackets,
 		apiquery.ArrayQueryFormatComma,
-		EmptyBody,
+		ApplicationJSON,
 		false,
 	)
 	if err != nil {
