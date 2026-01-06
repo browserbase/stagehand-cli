@@ -31,6 +31,7 @@ func TestSessionsEnd(t *testing.T) {
 		t,
 		"sessions", "end",
 		"--id", "c4dbf3a9-9a58-4b22-8a1c-9f20f9f9e123",
+		"---force-body", "{}",
 		"--x-language", "typescript",
 		"--x-sdk-version", "3.0.6",
 		"--x-sent-at", "2025-01-15T10:30:00Z",
