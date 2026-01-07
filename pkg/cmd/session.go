@@ -4,7 +4,6 @@ package cmd
 
 import (
 	"context"
-	"encoding/json"
 	"fmt"
 	"os"
 
@@ -441,16 +440,7 @@ func handleSessionsAct(ctx context.Context, cmd *cli.Command) error {
 		params,
 		options...,
 	)
-	for stream.Next() {
-		response := stream.Current()
-		jsonData, err := json.Marshal(response)
-		if err != nil {
-			return err
-		}
-		obj := gjson.ParseBytes(jsonData)
-		ShowJSON(os.Stdout, "sessions act", obj, format, transform)
-	}
-	return stream.Err()
+	return ShowJSONIterator(os.Stdout, "sessions act", stream, format, transform)
 }
 
 func handleSessionsEnd(ctx context.Context, cmd *cli.Command) error {
@@ -527,16 +517,7 @@ func handleSessionsExecute(ctx context.Context, cmd *cli.Command) error {
 		params,
 		options...,
 	)
-	for stream.Next() {
-		response := stream.Current()
-		jsonData, err := json.Marshal(response)
-		if err != nil {
-			return err
-		}
-		obj := gjson.ParseBytes(jsonData)
-		ShowJSON(os.Stdout, "sessions execute", obj, format, transform)
-	}
-	return stream.Err()
+	return ShowJSONIterator(os.Stdout, "sessions execute", stream, format, transform)
 }
 
 func handleSessionsExtract(ctx context.Context, cmd *cli.Command) error {
@@ -571,16 +552,7 @@ func handleSessionsExtract(ctx context.Context, cmd *cli.Command) error {
 		params,
 		options...,
 	)
-	for stream.Next() {
-		response := stream.Current()
-		jsonData, err := json.Marshal(response)
-		if err != nil {
-			return err
-		}
-		obj := gjson.ParseBytes(jsonData)
-		ShowJSON(os.Stdout, "sessions extract", obj, format, transform)
-	}
-	return stream.Err()
+	return ShowJSONIterator(os.Stdout, "sessions extract", stream, format, transform)
 }
 
 func handleSessionsNavigate(ctx context.Context, cmd *cli.Command) error {
@@ -657,16 +629,7 @@ func handleSessionsObserve(ctx context.Context, cmd *cli.Command) error {
 		params,
 		options...,
 	)
-	for stream.Next() {
-		response := stream.Current()
-		jsonData, err := json.Marshal(response)
-		if err != nil {
-			return err
-		}
-		obj := gjson.ParseBytes(jsonData)
-		ShowJSON(os.Stdout, "sessions observe", obj, format, transform)
-	}
-	return stream.Err()
+	return ShowJSONIterator(os.Stdout, "sessions observe", stream, format, transform)
 }
 
 func handleSessionsStart(ctx context.Context, cmd *cli.Command) error {
