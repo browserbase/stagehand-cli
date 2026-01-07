@@ -21,12 +21,14 @@ var sessionsAct = cli.Command{
 	Usage: "Executes a browser action using natural language instructions or a predefined\nAction object.",
 	Flags: []cli.Flag{
 		&requestflag.Flag[string]{
-			Name:  "id",
-			Usage: "Unique session identifier",
+			Name:     "id",
+			Usage:    "Unique session identifier",
+			Required: true,
 		},
 		&requestflag.Flag[any]{
 			Name:     "input",
 			Usage:    "Natural language instruction or Action object",
+			Required: true,
 			BodyPath: "input",
 		},
 		&requestflag.Flag[string]{
@@ -73,8 +75,9 @@ var sessionsEnd = cli.Command{
 	Usage: "Terminates the browser session and releases all associated resources.",
 	Flags: []cli.Flag{
 		&requestflag.Flag[string]{
-			Name:  "id",
-			Usage: "Unique session identifier",
+			Name:     "id",
+			Usage:    "Unique session identifier",
+			Required: true,
 		},
 		&requestflag.Flag[any]{
 			Name:     "-force-body",
@@ -110,15 +113,18 @@ var sessionsExecute = cli.Command{
 	Usage: "Runs an autonomous AI agent that can perform complex multi-step browser tasks.",
 	Flags: []cli.Flag{
 		&requestflag.Flag[string]{
-			Name:  "id",
-			Usage: "Unique session identifier",
+			Name:     "id",
+			Usage:    "Unique session identifier",
+			Required: true,
 		},
 		&requestflag.Flag[map[string]any]{
 			Name:     "agent-config",
+			Required: true,
 			BodyPath: "agentConfig",
 		},
 		&requestflag.Flag[map[string]any]{
 			Name:     "execute-options",
+			Required: true,
 			BodyPath: "executeOptions",
 		},
 		&requestflag.Flag[string]{
@@ -161,8 +167,9 @@ var sessionsExtract = cli.Command{
 	Usage: "Extracts structured data from the current page using AI-powered analysis.",
 	Flags: []cli.Flag{
 		&requestflag.Flag[string]{
-			Name:  "id",
-			Usage: "Unique session identifier",
+			Name:     "id",
+			Usage:    "Unique session identifier",
+			Required: true,
 		},
 		&requestflag.Flag[string]{
 			Name:     "frame-id",
@@ -218,12 +225,14 @@ var sessionsNavigate = cli.Command{
 	Usage: "Navigates the browser to the specified URL.",
 	Flags: []cli.Flag{
 		&requestflag.Flag[string]{
-			Name:  "id",
-			Usage: "Unique session identifier",
+			Name:     "id",
+			Usage:    "Unique session identifier",
+			Required: true,
 		},
 		&requestflag.Flag[string]{
 			Name:     "url",
 			Usage:    "URL to navigate to",
+			Required: true,
 			BodyPath: "url",
 		},
 		&requestflag.Flag[string]{
@@ -270,8 +279,9 @@ var sessionsObserve = cli.Command{
 	Usage: "Identifies and returns available actions on the current page that match the\ngiven instruction.",
 	Flags: []cli.Flag{
 		&requestflag.Flag[string]{
-			Name:  "id",
-			Usage: "Unique session identifier",
+			Name:     "id",
+			Usage:    "Unique session identifier",
+			Required: true,
 		},
 		&requestflag.Flag[string]{
 			Name:     "frame-id",
@@ -324,6 +334,7 @@ var sessionsStart = cli.Command{
 		&requestflag.Flag[string]{
 			Name:     "model-name",
 			Usage:    "Model name to use for AI operations",
+			Required: true,
 			BodyPath: "modelName",
 		},
 		&requestflag.Flag[float64]{
