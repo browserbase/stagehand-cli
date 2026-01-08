@@ -15,7 +15,7 @@ import (
 	"github.com/urfave/cli/v3"
 )
 
-var sessionsAct = cli.Command{
+var sessionsAct = requestflag.WithInnerFlags(cli.Command{
 	Name:  "act",
 	Usage: "Executes a browser action using natural language instructions or a predefined\nAction object.",
 	Flags: []cli.Flag{
@@ -67,7 +67,25 @@ var sessionsAct = cli.Command{
 	},
 	Action:          handleSessionsAct,
 	HideHelpCommand: true,
-}
+}, map[string][]requestflag.HasOuterFlag{
+	"options": {
+		&requestflag.InnerFlag[any]{
+			Name:       "options.model",
+			Usage:      "Model name string with provider prefix (e.g., 'openai/gpt-5-nano', 'anthropic/claude-4.5-opus')",
+			InnerField: "model",
+		},
+		&requestflag.InnerFlag[float64]{
+			Name:       "options.timeout",
+			Usage:      "Timeout in ms for the action",
+			InnerField: "timeout",
+		},
+		&requestflag.InnerFlag[map[string]any]{
+			Name:       "options.variables",
+			Usage:      "Variables to substitute in the action instruction",
+			InnerField: "variables",
+		},
+	},
+})
 
 var sessionsEnd = cli.Command{
 	Name:  "end",
@@ -107,7 +125,7 @@ var sessionsEnd = cli.Command{
 	HideHelpCommand: true,
 }
 
-var sessionsExecute = cli.Command{
+var sessionsExecute = requestflag.WithInnerFlags(cli.Command{
 	Name:  "execute",
 	Usage: "Runs an autonomous AI agent that can perform complex multi-step browser tasks.",
 	Flags: []cli.Flag{
@@ -159,9 +177,49 @@ var sessionsExecute = cli.Command{
 	},
 	Action:          handleSessionsExecute,
 	HideHelpCommand: true,
-}
+}, map[string][]requestflag.HasOuterFlag{
+	"agent-config": {
+		&requestflag.InnerFlag[bool]{
+			Name:       "agent-config.cua",
+			Usage:      "Enable Computer Use Agent mode",
+			InnerField: "cua",
+		},
+		&requestflag.InnerFlag[any]{
+			Name:       "agent-config.model",
+			Usage:      "Model name string with provider prefix (e.g., 'openai/gpt-5-nano', 'anthropic/claude-4.5-opus')",
+			InnerField: "model",
+		},
+		&requestflag.InnerFlag[string]{
+			Name:       "agent-config.provider",
+			Usage:      "AI provider for the agent (legacy, use model: openai/gpt-5-nano instead)",
+			InnerField: "provider",
+		},
+		&requestflag.InnerFlag[string]{
+			Name:       "agent-config.system-prompt",
+			Usage:      "Custom system prompt for the agent",
+			InnerField: "systemPrompt",
+		},
+	},
+	"execute-options": {
+		&requestflag.InnerFlag[string]{
+			Name:       "execute-options.instruction",
+			Usage:      "Natural language instruction for the agent",
+			InnerField: "instruction",
+		},
+		&requestflag.InnerFlag[bool]{
+			Name:       "execute-options.highlight-cursor",
+			Usage:      "Whether to visually highlight the cursor during execution",
+			InnerField: "highlightCursor",
+		},
+		&requestflag.InnerFlag[float64]{
+			Name:       "execute-options.max-steps",
+			Usage:      "Maximum number of steps the agent can take",
+			InnerField: "maxSteps",
+		},
+	},
+})
 
-var sessionsExtract = cli.Command{
+var sessionsExtract = requestflag.WithInnerFlags(cli.Command{
 	Name:  "extract",
 	Usage: "Extracts structured data from the current page using AI-powered analysis.",
 	Flags: []cli.Flag{
@@ -217,9 +275,27 @@ var sessionsExtract = cli.Command{
 	},
 	Action:          handleSessionsExtract,
 	HideHelpCommand: true,
-}
+}, map[string][]requestflag.HasOuterFlag{
+	"options": {
+		&requestflag.InnerFlag[any]{
+			Name:       "options.model",
+			Usage:      "Model name string with provider prefix (e.g., 'openai/gpt-5-nano', 'anthropic/claude-4.5-opus')",
+			InnerField: "model",
+		},
+		&requestflag.InnerFlag[string]{
+			Name:       "options.selector",
+			Usage:      "CSS selector to scope extraction to a specific element",
+			InnerField: "selector",
+		},
+		&requestflag.InnerFlag[float64]{
+			Name:       "options.timeout",
+			Usage:      "Timeout in ms for the extraction",
+			InnerField: "timeout",
+		},
+	},
+})
 
-var sessionsNavigate = cli.Command{
+var sessionsNavigate = requestflag.WithInnerFlags(cli.Command{
 	Name:  "navigate",
 	Usage: "Navigates the browser to the specified URL.",
 	Flags: []cli.Flag{
@@ -271,9 +347,27 @@ var sessionsNavigate = cli.Command{
 	},
 	Action:          handleSessionsNavigate,
 	HideHelpCommand: true,
-}
+}, map[string][]requestflag.HasOuterFlag{
+	"options": {
+		&requestflag.InnerFlag[string]{
+			Name:       "options.referer",
+			Usage:      "Referer header to send with the request",
+			InnerField: "referer",
+		},
+		&requestflag.InnerFlag[float64]{
+			Name:       "options.timeout",
+			Usage:      "Timeout in ms for the navigation",
+			InnerField: "timeout",
+		},
+		&requestflag.InnerFlag[string]{
+			Name:       "options.wait-until",
+			Usage:      "When to consider navigation complete",
+			InnerField: "waitUntil",
+		},
+	},
+})
 
-var sessionsObserve = cli.Command{
+var sessionsObserve = requestflag.WithInnerFlags(cli.Command{
 	Name:  "observe",
 	Usage: "Identifies and returns available actions on the current page that match the\ngiven instruction.",
 	Flags: []cli.Flag{
@@ -324,9 +418,27 @@ var sessionsObserve = cli.Command{
 	},
 	Action:          handleSessionsObserve,
 	HideHelpCommand: true,
-}
+}, map[string][]requestflag.HasOuterFlag{
+	"options": {
+		&requestflag.InnerFlag[any]{
+			Name:       "options.model",
+			Usage:      "Model name string with provider prefix (e.g., 'openai/gpt-5-nano', 'anthropic/claude-4.5-opus')",
+			InnerField: "model",
+		},
+		&requestflag.InnerFlag[string]{
+			Name:       "options.selector",
+			Usage:      "CSS selector to scope observation to a specific element",
+			InnerField: "selector",
+		},
+		&requestflag.InnerFlag[float64]{
+			Name:       "options.timeout",
+			Usage:      "Timeout in ms for the observation",
+			InnerField: "timeout",
+		},
+	},
+})
 
-var sessionsStart = cli.Command{
+var sessionsStart = requestflag.WithInnerFlags(cli.Command{
 	Name:  "start",
 	Usage: "Creates a new browser session with the specified configuration. Returns a\nsession ID used for all subsequent operations.",
 	Flags: []cli.Flag{
@@ -406,7 +518,58 @@ var sessionsStart = cli.Command{
 	},
 	Action:          handleSessionsStart,
 	HideHelpCommand: true,
-}
+}, map[string][]requestflag.HasOuterFlag{
+	"browser": {
+		&requestflag.InnerFlag[string]{
+			Name:       "browser.cdp-url",
+			Usage:      "Chrome DevTools Protocol URL for connecting to existing browser",
+			InnerField: "cdpUrl",
+		},
+		&requestflag.InnerFlag[map[string]any]{
+			Name:       "browser.launch-options",
+			InnerField: "launchOptions",
+		},
+		&requestflag.InnerFlag[string]{
+			Name:       "browser.type",
+			Usage:      "Browser type to use",
+			InnerField: "type",
+		},
+	},
+	"browserbase-session-create-params": {
+		&requestflag.InnerFlag[map[string]any]{
+			Name:       "browserbase-session-create-params.browser-settings",
+			InnerField: "browserSettings",
+		},
+		&requestflag.InnerFlag[string]{
+			Name:       "browserbase-session-create-params.extension-id",
+			InnerField: "extensionId",
+		},
+		&requestflag.InnerFlag[bool]{
+			Name:       "browserbase-session-create-params.keep-alive",
+			InnerField: "keepAlive",
+		},
+		&requestflag.InnerFlag[string]{
+			Name:       "browserbase-session-create-params.project-id",
+			InnerField: "projectId",
+		},
+		&requestflag.InnerFlag[any]{
+			Name:       "browserbase-session-create-params.proxies",
+			InnerField: "proxies",
+		},
+		&requestflag.InnerFlag[string]{
+			Name:       "browserbase-session-create-params.region",
+			InnerField: "region",
+		},
+		&requestflag.InnerFlag[float64]{
+			Name:       "browserbase-session-create-params.timeout",
+			InnerField: "timeout",
+		},
+		&requestflag.InnerFlag[map[string]any]{
+			Name:       "browserbase-session-create-params.user-metadata",
+			InnerField: "userMetadata",
+		},
+	},
+})
 
 func handleSessionsAct(ctx context.Context, cmd *cli.Command) error {
 	client := stagehand.NewClient(getDefaultRequestOptions(cmd)...)
