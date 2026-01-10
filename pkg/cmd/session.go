@@ -44,16 +44,6 @@ var sessionsAct = requestflag.WithInnerFlags(cli.Command{
 			Usage:    "Whether to stream the response via SSE",
 			BodyPath: "streamResponse",
 		},
-		&requestflag.Flag[string]{
-			Name:       "x-language",
-			Usage:      "Client SDK language",
-			HeaderPath: "x-language",
-		},
-		&requestflag.Flag[string]{
-			Name:       "x-sdk-version",
-			Usage:      "Version of the Stagehand SDK",
-			HeaderPath: "x-sdk-version",
-		},
 		&requestflag.Flag[requestflag.DateTimeValue]{
 			Name:       "x-sent-at",
 			Usage:      "ISO timestamp when request was sent",
@@ -100,16 +90,6 @@ var sessionsEnd = cli.Command{
 			Name:     "-force-body",
 			BodyPath: "_forceBody",
 		},
-		&requestflag.Flag[string]{
-			Name:       "x-language",
-			Usage:      "Client SDK language",
-			HeaderPath: "x-language",
-		},
-		&requestflag.Flag[string]{
-			Name:       "x-sdk-version",
-			Usage:      "Version of the Stagehand SDK",
-			HeaderPath: "x-sdk-version",
-		},
 		&requestflag.Flag[requestflag.DateTimeValue]{
 			Name:       "x-sent-at",
 			Usage:      "ISO timestamp when request was sent",
@@ -153,16 +133,6 @@ var sessionsExecute = requestflag.WithInnerFlags(cli.Command{
 			Name:     "stream-response",
 			Usage:    "Whether to stream the response via SSE",
 			BodyPath: "streamResponse",
-		},
-		&requestflag.Flag[string]{
-			Name:       "x-language",
-			Usage:      "Client SDK language",
-			HeaderPath: "x-language",
-		},
-		&requestflag.Flag[string]{
-			Name:       "x-sdk-version",
-			Usage:      "Version of the Stagehand SDK",
-			HeaderPath: "x-sdk-version",
 		},
 		&requestflag.Flag[requestflag.DateTimeValue]{
 			Name:       "x-sent-at",
@@ -252,16 +222,6 @@ var sessionsExtract = requestflag.WithInnerFlags(cli.Command{
 			Usage:    "Whether to stream the response via SSE",
 			BodyPath: "streamResponse",
 		},
-		&requestflag.Flag[string]{
-			Name:       "x-language",
-			Usage:      "Client SDK language",
-			HeaderPath: "x-language",
-		},
-		&requestflag.Flag[string]{
-			Name:       "x-sdk-version",
-			Usage:      "Version of the Stagehand SDK",
-			HeaderPath: "x-sdk-version",
-		},
 		&requestflag.Flag[requestflag.DateTimeValue]{
 			Name:       "x-sent-at",
 			Usage:      "ISO timestamp when request was sent",
@@ -324,16 +284,6 @@ var sessionsNavigate = requestflag.WithInnerFlags(cli.Command{
 			Usage:    "Whether to stream the response via SSE",
 			BodyPath: "streamResponse",
 		},
-		&requestflag.Flag[string]{
-			Name:       "x-language",
-			Usage:      "Client SDK language",
-			HeaderPath: "x-language",
-		},
-		&requestflag.Flag[string]{
-			Name:       "x-sdk-version",
-			Usage:      "Version of the Stagehand SDK",
-			HeaderPath: "x-sdk-version",
-		},
 		&requestflag.Flag[requestflag.DateTimeValue]{
 			Name:       "x-sent-at",
 			Usage:      "ISO timestamp when request was sent",
@@ -394,16 +344,6 @@ var sessionsObserve = requestflag.WithInnerFlags(cli.Command{
 			Name:     "stream-response",
 			Usage:    "Whether to stream the response via SSE",
 			BodyPath: "streamResponse",
-		},
-		&requestflag.Flag[string]{
-			Name:       "x-language",
-			Usage:      "Client SDK language",
-			HeaderPath: "x-language",
-		},
-		&requestflag.Flag[string]{
-			Name:       "x-sdk-version",
-			Usage:      "Version of the Stagehand SDK",
-			HeaderPath: "x-sdk-version",
 		},
 		&requestflag.Flag[requestflag.DateTimeValue]{
 			Name:       "x-sent-at",
@@ -494,16 +434,6 @@ var sessionsStart = requestflag.WithInnerFlags(cli.Command{
 			Name:     "wait-for-captcha-solves",
 			Usage:    "Wait for captcha solves (deprecated, v2 only)",
 			BodyPath: "waitForCaptchaSolves",
-		},
-		&requestflag.Flag[string]{
-			Name:       "x-language",
-			Usage:      "Client SDK language",
-			HeaderPath: "x-language",
-		},
-		&requestflag.Flag[string]{
-			Name:       "x-sdk-version",
-			Usage:      "Version of the Stagehand SDK",
-			HeaderPath: "x-sdk-version",
 		},
 		&requestflag.Flag[requestflag.DateTimeValue]{
 			Name:       "x-sent-at",
