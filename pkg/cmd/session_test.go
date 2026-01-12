@@ -196,7 +196,7 @@ func TestSessionsStart(t *testing.T) {
 	mocktest.TestRunMockTestWithFlags(
 		t,
 		"sessions", "start",
-		"--model-name", "gpt-4o",
+		"--model-name", "openai/gpt-4o",
 		"--act-timeout-ms", "0",
 		"--browser", "{cdpUrl: ws://localhost:9222, launchOptions: {acceptDownloads: true, args: [string], cdpUrl: cdpUrl, chromiumSandbox: true, connectTimeoutMs: 0, deviceScaleFactor: 0, devtools: true, downloadsPath: downloadsPath, executablePath: executablePath, hasTouch: true, headless: true, ignoreDefaultArgs: true, ignoreHTTPSErrors: true, locale: locale, preserveUserDataDir: true, proxy: {server: server, bypass: bypass, password: password, username: username}, userDataDir: userDataDir, viewport: {height: 0, width: 0}}, type: local}",
 		"--browserbase-session-create-params", "{browserSettings: {advancedStealth: true, blockAds: true, context: {id: id, persist: true}, extensionId: extensionId, fingerprint: {browsers: [chrome], devices: [desktop], httpVersion: '1', locales: [string], operatingSystems: [android], screen: {maxHeight: 0, maxWidth: 0, minHeight: 0, minWidth: 0}}, logSession: true, recordSession: true, solveCaptchas: true, viewport: {height: 0, width: 0}}, extensionId: extensionId, keepAlive: true, projectId: projectId, proxies: true, region: us-west-2, timeout: 0, userMetadata: {foo: bar}}",
@@ -218,7 +218,7 @@ func TestSessionsStart(t *testing.T) {
 	mocktest.TestRunMockTestWithFlags(
 		t,
 		"sessions", "start",
-		"--model-name", "gpt-4o",
+		"--model-name", "openai/gpt-4o",
 		"--act-timeout-ms", "0",
 		"--browser.cdpUrl", "ws://localhost:9222",
 		"--browser.launchOptions", "{acceptDownloads: true, args: [string], cdpUrl: cdpUrl, chromiumSandbox: true, connectTimeoutMs: 0, deviceScaleFactor: 0, devtools: true, downloadsPath: downloadsPath, executablePath: executablePath, hasTouch: true, headless: true, ignoreDefaultArgs: true, ignoreHTTPSErrors: true, locale: locale, preserveUserDataDir: true, proxy: {server: server, bypass: bypass, password: password, username: username}, userDataDir: userDataDir, viewport: {height: 0, width: 0}}",
