@@ -46,4 +46,4 @@ require (
 	gopkg.in/yaml.v3 v3.0.1 // indirect
 )
 
-replace github.com/browserbase/stagehand-go => github.com/stainless-sdks/stagehand-go v0.0.0-20260106011759-5e6109c937b9
+replace github.com/browserbase/stagehand-go => github.com/stainless-sdks/stagehand-go v0.0.0-20260113084323-10de91a3e202
