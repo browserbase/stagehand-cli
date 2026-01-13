@@ -16,8 +16,9 @@ import (
 )
 
 var sessionsAct = requestflag.WithInnerFlags(cli.Command{
-	Name:  "act",
-	Usage: "Executes a browser action using natural language instructions or a predefined\nAction object.",
+	Name:    "act",
+	Usage:   "Executes a browser action using natural language instructions or a predefined\nAction object.",
+	Suggest: true,
 	Flags: []cli.Flag{
 		&requestflag.Flag[string]{
 			Name:     "id",
@@ -78,8 +79,9 @@ var sessionsAct = requestflag.WithInnerFlags(cli.Command{
 })
 
 var sessionsEnd = cli.Command{
-	Name:  "end",
-	Usage: "Terminates the browser session and releases all associated resources.",
+	Name:    "end",
+	Usage:   "Terminates the browser session and releases all associated resources.",
+	Suggest: true,
 	Flags: []cli.Flag{
 		&requestflag.Flag[string]{
 			Name:     "id",
@@ -106,8 +108,9 @@ var sessionsEnd = cli.Command{
 }
 
 var sessionsExecute = requestflag.WithInnerFlags(cli.Command{
-	Name:  "execute",
-	Usage: "Runs an autonomous AI agent that can perform complex multi-step browser tasks.",
+	Name:    "execute",
+	Usage:   "Runs an autonomous AI agent that can perform complex multi-step browser tasks.",
+	Suggest: true,
 	Flags: []cli.Flag{
 		&requestflag.Flag[string]{
 			Name:     "id",
@@ -190,8 +193,9 @@ var sessionsExecute = requestflag.WithInnerFlags(cli.Command{
 })
 
 var sessionsExtract = requestflag.WithInnerFlags(cli.Command{
-	Name:  "extract",
-	Usage: "Extracts structured data from the current page using AI-powered analysis.",
+	Name:    "extract",
+	Usage:   "Extracts structured data from the current page using AI-powered analysis.",
+	Suggest: true,
 	Flags: []cli.Flag{
 		&requestflag.Flag[string]{
 			Name:     "id",
@@ -256,8 +260,9 @@ var sessionsExtract = requestflag.WithInnerFlags(cli.Command{
 })
 
 var sessionsNavigate = requestflag.WithInnerFlags(cli.Command{
-	Name:  "navigate",
-	Usage: "Navigates the browser to the specified URL.",
+	Name:    "navigate",
+	Usage:   "Navigates the browser to the specified URL.",
+	Suggest: true,
 	Flags: []cli.Flag{
 		&requestflag.Flag[string]{
 			Name:     "id",
@@ -318,8 +323,9 @@ var sessionsNavigate = requestflag.WithInnerFlags(cli.Command{
 })
 
 var sessionsObserve = requestflag.WithInnerFlags(cli.Command{
-	Name:  "observe",
-	Usage: "Identifies and returns available actions on the current page that match the\ngiven instruction.",
+	Name:    "observe",
+	Usage:   "Identifies and returns available actions on the current page that match the\ngiven instruction.",
+	Suggest: true,
 	Flags: []cli.Flag{
 		&requestflag.Flag[string]{
 			Name:     "id",
@@ -379,8 +385,9 @@ var sessionsObserve = requestflag.WithInnerFlags(cli.Command{
 })
 
 var sessionsStart = requestflag.WithInnerFlags(cli.Command{
-	Name:  "start",
-	Usage: "Creates a new browser session with the specified configuration. Returns a\nsession ID used for all subsequent operations.",
+	Name:    "start",
+	Usage:   "Creates a new browser session with the specified configuration. Returns a\nsession ID used for all subsequent operations.",
+	Suggest: true,
 	Flags: []cli.Flag{
 		&requestflag.Flag[string]{
 			Name:     "model-name",
