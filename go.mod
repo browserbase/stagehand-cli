@@ -3,7 +3,7 @@ module github.com/browserbase/stagehand-cli
 go 1.25
 
 require (
-	github.com/browserbase/stagehand-go v0.0.0
+	github.com/browserbase/stagehand-go v0.17.2
 	github.com/charmbracelet/bubbles v0.21.0
 	github.com/charmbracelet/bubbletea v1.3.6
 	github.com/charmbracelet/lipgloss v1.1.0
@@ -44,5 +44,3 @@ require (
 	golang.org/x/text v0.3.8 // indirect
 	gopkg.in/yaml.v3 v3.0.1 // indirect
 )
-
-replace github.com/browserbase/stagehand-go => github.com/stainless-sdks/stagehand-go v0.0.0-20260113230824-738d35fce2c7
