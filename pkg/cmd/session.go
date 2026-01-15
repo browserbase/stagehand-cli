@@ -45,7 +45,7 @@ var sessionsAct = requestflag.WithInnerFlags(cli.Command{
 			Usage:    "Whether to stream the response via SSE",
 			BodyPath: "streamResponse",
 		},
-		&requestflag.Flag[requestflag.DateTimeValue]{
+		&requestflag.Flag[any]{
 			Name:       "x-sent-at",
 			Usage:      "ISO timestamp when request was sent",
 			HeaderPath: "x-sent-at",
@@ -92,7 +92,7 @@ var sessionsEnd = cli.Command{
 			Name:     "-force-body",
 			BodyPath: "_forceBody",
 		},
-		&requestflag.Flag[requestflag.DateTimeValue]{
+		&requestflag.Flag[any]{
 			Name:       "x-sent-at",
 			Usage:      "ISO timestamp when request was sent",
 			HeaderPath: "x-sent-at",
@@ -137,7 +137,7 @@ var sessionsExecute = requestflag.WithInnerFlags(cli.Command{
 			Usage:    "Whether to stream the response via SSE",
 			BodyPath: "streamResponse",
 		},
-		&requestflag.Flag[requestflag.DateTimeValue]{
+		&requestflag.Flag[any]{
 			Name:       "x-sent-at",
 			Usage:      "ISO timestamp when request was sent",
 			HeaderPath: "x-sent-at",
@@ -226,7 +226,7 @@ var sessionsExtract = requestflag.WithInnerFlags(cli.Command{
 			Usage:    "Whether to stream the response via SSE",
 			BodyPath: "streamResponse",
 		},
-		&requestflag.Flag[requestflag.DateTimeValue]{
+		&requestflag.Flag[any]{
 			Name:       "x-sent-at",
 			Usage:      "ISO timestamp when request was sent",
 			HeaderPath: "x-sent-at",
@@ -289,7 +289,7 @@ var sessionsNavigate = requestflag.WithInnerFlags(cli.Command{
 			Usage:    "Whether to stream the response via SSE",
 			BodyPath: "streamResponse",
 		},
-		&requestflag.Flag[requestflag.DateTimeValue]{
+		&requestflag.Flag[any]{
 			Name:       "x-sent-at",
 			Usage:      "ISO timestamp when request was sent",
 			HeaderPath: "x-sent-at",
@@ -351,7 +351,7 @@ var sessionsObserve = requestflag.WithInnerFlags(cli.Command{
 			Usage:    "Whether to stream the response via SSE",
 			BodyPath: "streamResponse",
 		},
-		&requestflag.Flag[requestflag.DateTimeValue]{
+		&requestflag.Flag[any]{
 			Name:       "x-sent-at",
 			Usage:      "ISO timestamp when request was sent",
 			HeaderPath: "x-sent-at",
@@ -442,7 +442,7 @@ var sessionsStart = requestflag.WithInnerFlags(cli.Command{
 			Usage:    "Wait for captcha solves (deprecated, v2 only)",
 			BodyPath: "waitForCaptchaSolves",
 		},
-		&requestflag.Flag[requestflag.DateTimeValue]{
+		&requestflag.Flag[any]{
 			Name:       "x-sent-at",
 			Usage:      "ISO timestamp when request was sent",
 			HeaderPath: "x-sent-at",
