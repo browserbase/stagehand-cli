@@ -45,11 +45,6 @@ var sessionsAct = requestflag.WithInnerFlags(cli.Command{
 			Usage:    "Whether to stream the response via SSE",
 			BodyPath: "streamResponse",
 		},
-		&requestflag.Flag[any]{
-			Name:       "x-sent-at",
-			Usage:      "ISO timestamp when request was sent",
-			HeaderPath: "x-sent-at",
-		},
 		&requestflag.Flag[string]{
 			Name:       "x-stream-response",
 			Usage:      "Whether to stream the response via SSE",
@@ -62,7 +57,7 @@ var sessionsAct = requestflag.WithInnerFlags(cli.Command{
 	"options": {
 		&requestflag.InnerFlag[any]{
 			Name:       "options.model",
-			Usage:      "Model name string with provider prefix (e.g., 'openai/gpt-5-nano', 'anthropic/claude-4.5-opus')",
+			Usage:      "Model name string with provider prefix. Always use the format 'provider/model-name' (e.g., 'openai/gpt-4o', 'anthropic/claude-sonnet-4-5-20250929', 'google/gemini-2.0-flash')",
 			InnerField: "model",
 		},
 		&requestflag.InnerFlag[float64]{
@@ -91,11 +86,6 @@ var sessionsEnd = cli.Command{
 		&requestflag.Flag[any]{
 			Name:     "-force-body",
 			BodyPath: "_forceBody",
-		},
-		&requestflag.Flag[any]{
-			Name:       "x-sent-at",
-			Usage:      "ISO timestamp when request was sent",
-			HeaderPath: "x-sent-at",
 		},
 		&requestflag.Flag[string]{
 			Name:       "x-stream-response",
@@ -137,11 +127,6 @@ var sessionsExecute = requestflag.WithInnerFlags(cli.Command{
 			Usage:    "Whether to stream the response via SSE",
 			BodyPath: "streamResponse",
 		},
-		&requestflag.Flag[any]{
-			Name:       "x-sent-at",
-			Usage:      "ISO timestamp when request was sent",
-			HeaderPath: "x-sent-at",
-		},
 		&requestflag.Flag[string]{
 			Name:       "x-stream-response",
 			Usage:      "Whether to stream the response via SSE",
@@ -159,7 +144,7 @@ var sessionsExecute = requestflag.WithInnerFlags(cli.Command{
 		},
 		&requestflag.InnerFlag[any]{
 			Name:       "agent-config.model",
-			Usage:      "Model name string with provider prefix (e.g., 'openai/gpt-5-nano', 'anthropic/claude-4.5-opus')",
+			Usage:      "Model name string with provider prefix. Always use the format 'provider/model-name' (e.g., 'openai/gpt-4o', 'anthropic/claude-sonnet-4-5-20250929', 'google/gemini-2.0-flash')",
 			InnerField: "model",
 		},
 		&requestflag.InnerFlag[string]{
@@ -226,11 +211,6 @@ var sessionsExtract = requestflag.WithInnerFlags(cli.Command{
 			Usage:    "Whether to stream the response via SSE",
 			BodyPath: "streamResponse",
 		},
-		&requestflag.Flag[any]{
-			Name:       "x-sent-at",
-			Usage:      "ISO timestamp when request was sent",
-			HeaderPath: "x-sent-at",
-		},
 		&requestflag.Flag[string]{
 			Name:       "x-stream-response",
 			Usage:      "Whether to stream the response via SSE",
@@ -243,7 +223,7 @@ var sessionsExtract = requestflag.WithInnerFlags(cli.Command{
 	"options": {
 		&requestflag.InnerFlag[any]{
 			Name:       "options.model",
-			Usage:      "Model name string with provider prefix (e.g., 'openai/gpt-5-nano', 'anthropic/claude-4.5-opus')",
+			Usage:      "Model name string with provider prefix. Always use the format 'provider/model-name' (e.g., 'openai/gpt-4o', 'anthropic/claude-sonnet-4-5-20250929', 'google/gemini-2.0-flash')",
 			InnerField: "model",
 		},
 		&requestflag.InnerFlag[string]{
@@ -288,11 +268,6 @@ var sessionsNavigate = requestflag.WithInnerFlags(cli.Command{
 			Name:     "stream-response",
 			Usage:    "Whether to stream the response via SSE",
 			BodyPath: "streamResponse",
-		},
-		&requestflag.Flag[any]{
-			Name:       "x-sent-at",
-			Usage:      "ISO timestamp when request was sent",
-			HeaderPath: "x-sent-at",
 		},
 		&requestflag.Flag[string]{
 			Name:       "x-stream-response",
@@ -351,11 +326,6 @@ var sessionsObserve = requestflag.WithInnerFlags(cli.Command{
 			Usage:    "Whether to stream the response via SSE",
 			BodyPath: "streamResponse",
 		},
-		&requestflag.Flag[any]{
-			Name:       "x-sent-at",
-			Usage:      "ISO timestamp when request was sent",
-			HeaderPath: "x-sent-at",
-		},
 		&requestflag.Flag[string]{
 			Name:       "x-stream-response",
 			Usage:      "Whether to stream the response via SSE",
@@ -368,7 +338,7 @@ var sessionsObserve = requestflag.WithInnerFlags(cli.Command{
 	"options": {
 		&requestflag.InnerFlag[any]{
 			Name:       "options.model",
-			Usage:      "Model name string with provider prefix (e.g., 'openai/gpt-5-nano', 'anthropic/claude-4.5-opus')",
+			Usage:      "Model name string with provider prefix. Always use the format 'provider/model-name' (e.g., 'openai/gpt-4o', 'anthropic/claude-sonnet-4-5-20250929', 'google/gemini-2.0-flash')",
 			InnerField: "model",
 		},
 		&requestflag.InnerFlag[string]{
@@ -391,7 +361,7 @@ var sessionsStart = requestflag.WithInnerFlags(cli.Command{
 	Flags: []cli.Flag{
 		&requestflag.Flag[string]{
 			Name:     "model-name",
-			Usage:    "Model name to use for AI operations",
+			Usage:    "Model name to use for AI operations. Always use the format 'provider/model-name' (e.g., 'openai/gpt-4o', 'anthropic/claude-sonnet-4-5-20250929', 'google/gemini-2.0-flash')",
 			Required: true,
 			BodyPath: "modelName",
 		},
@@ -441,11 +411,6 @@ var sessionsStart = requestflag.WithInnerFlags(cli.Command{
 			Name:     "wait-for-captcha-solves",
 			Usage:    "Wait for captcha solves (deprecated, v2 only)",
 			BodyPath: "waitForCaptchaSolves",
-		},
-		&requestflag.Flag[any]{
-			Name:       "x-sent-at",
-			Usage:      "ISO timestamp when request was sent",
-			HeaderPath: "x-sent-at",
 		},
 		&requestflag.Flag[string]{
 			Name:       "x-stream-response",

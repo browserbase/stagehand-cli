@@ -17,9 +17,8 @@ func TestSessionsAct(t *testing.T) {
 		"--id", "c4dbf3a9-9a58-4b22-8a1c-9f20f9f9e123",
 		"--input", "Click the login button",
 		"--frame-id", "frameId",
-		"--options", "{model: openai/gpt-5-nano, timeout: 30000, variables: {username: john_doe}}",
+		"--options", "{model: openai/gpt-4o, timeout: 30000, variables: {username: john_doe}}",
 		"--stream-response=false",
-		"--x-sent-at", "2025-01-15T10:30:00Z",
 		"--x-stream-response", "true",
 	)
 
@@ -33,11 +32,10 @@ func TestSessionsAct(t *testing.T) {
 		"--id", "c4dbf3a9-9a58-4b22-8a1c-9f20f9f9e123",
 		"--input", "Click the login button",
 		"--frame-id", "frameId",
-		"--options.model", "openai/gpt-5-nano",
+		"--options.model", "openai/gpt-4o",
 		"--options.timeout", "30000",
 		"--options.variables", "{username: john_doe}",
 		"--stream-response=false",
-		"--x-sent-at", "2025-01-15T10:30:00Z",
 		"--x-stream-response", "true",
 	)
 }
@@ -49,7 +47,6 @@ func TestSessionsEnd(t *testing.T) {
 		"sessions", "end",
 		"--id", "c4dbf3a9-9a58-4b22-8a1c-9f20f9f9e123",
 		"---force-body", "{}",
-		"--x-sent-at", "2025-01-15T10:30:00Z",
 		"--x-stream-response", "true",
 	)
 }
@@ -60,11 +57,10 @@ func TestSessionsExecute(t *testing.T) {
 		t,
 		"sessions", "execute",
 		"--id", "c4dbf3a9-9a58-4b22-8a1c-9f20f9f9e123",
-		"--agent-config", "{cua: true, model: openai/gpt-5-nano, provider: openai, systemPrompt: systemPrompt}",
+		"--agent-config", "{cua: true, model: openai/gpt-4o, provider: openai, systemPrompt: systemPrompt}",
 		"--execute-options", "{instruction: 'Log in with username ''demo'' and password ''test123'', then navigate to settings', highlightCursor: true, maxSteps: 20}",
 		"--frame-id", "frameId",
 		"--stream-response=false",
-		"--x-sent-at", "2025-01-15T10:30:00Z",
 		"--x-stream-response", "true",
 	)
 
@@ -77,7 +73,7 @@ func TestSessionsExecute(t *testing.T) {
 		"sessions", "execute",
 		"--id", "c4dbf3a9-9a58-4b22-8a1c-9f20f9f9e123",
 		"--agent-config.cua=true",
-		"--agent-config.model", "openai/gpt-5-nano",
+		"--agent-config.model", "openai/gpt-4o",
 		"--agent-config.provider", "openai",
 		"--agent-config.systemPrompt", "systemPrompt",
 		"--execute-options.instruction", "Log in with username 'demo' and password 'test123', then navigate to settings",
@@ -85,7 +81,6 @@ func TestSessionsExecute(t *testing.T) {
 		"--execute-options.maxSteps", "20",
 		"--frame-id", "frameId",
 		"--stream-response=false",
-		"--x-sent-at", "2025-01-15T10:30:00Z",
 		"--x-stream-response", "true",
 	)
 }
@@ -98,10 +93,9 @@ func TestSessionsExtract(t *testing.T) {
 		"--id", "c4dbf3a9-9a58-4b22-8a1c-9f20f9f9e123",
 		"--frame-id", "frameId",
 		"--instruction", "Extract all product names and prices from the page",
-		"--options", "{model: openai/gpt-5-nano, selector: '#main-content', timeout: 30000}",
+		"--options", "{model: openai/gpt-4o, selector: '#main-content', timeout: 30000}",
 		"--schema", "{foo: bar}",
 		"--stream-response=false",
-		"--x-sent-at", "2025-01-15T10:30:00Z",
 		"--x-stream-response", "true",
 	)
 
@@ -115,12 +109,11 @@ func TestSessionsExtract(t *testing.T) {
 		"--id", "c4dbf3a9-9a58-4b22-8a1c-9f20f9f9e123",
 		"--frame-id", "frameId",
 		"--instruction", "Extract all product names and prices from the page",
-		"--options.model", "openai/gpt-5-nano",
+		"--options.model", "openai/gpt-4o",
 		"--options.selector", "#main-content",
 		"--options.timeout", "30000",
 		"--schema", "{foo: bar}",
 		"--stream-response=false",
-		"--x-sent-at", "2025-01-15T10:30:00Z",
 		"--x-stream-response", "true",
 	)
 }
@@ -135,7 +128,6 @@ func TestSessionsNavigate(t *testing.T) {
 		"--frame-id", "frameId",
 		"--options", "{referer: referer, timeout: 30000, waitUntil: networkidle}",
 		"--stream-response=true",
-		"--x-sent-at", "2025-01-15T10:30:00Z",
 		"--x-stream-response", "true",
 	)
 
@@ -153,7 +145,6 @@ func TestSessionsNavigate(t *testing.T) {
 		"--options.timeout", "30000",
 		"--options.waitUntil", "networkidle",
 		"--stream-response=true",
-		"--x-sent-at", "2025-01-15T10:30:00Z",
 		"--x-stream-response", "true",
 	)
 }
@@ -166,9 +157,8 @@ func TestSessionsObserve(t *testing.T) {
 		"--id", "c4dbf3a9-9a58-4b22-8a1c-9f20f9f9e123",
 		"--frame-id", "frameId",
 		"--instruction", "Find all clickable navigation links",
-		"--options", "{model: openai/gpt-5-nano, selector: nav, timeout: 30000}",
+		"--options", "{model: openai/gpt-4o, selector: nav, timeout: 30000}",
 		"--stream-response=false",
-		"--x-sent-at", "2025-01-15T10:30:00Z",
 		"--x-stream-response", "true",
 	)
 
@@ -182,11 +172,10 @@ func TestSessionsObserve(t *testing.T) {
 		"--id", "c4dbf3a9-9a58-4b22-8a1c-9f20f9f9e123",
 		"--frame-id", "frameId",
 		"--instruction", "Find all clickable navigation links",
-		"--options.model", "openai/gpt-5-nano",
+		"--options.model", "openai/gpt-4o",
 		"--options.selector", "nav",
 		"--options.timeout", "30000",
 		"--stream-response=false",
-		"--x-sent-at", "2025-01-15T10:30:00Z",
 		"--x-stream-response", "true",
 	)
 }
@@ -207,7 +196,6 @@ func TestSessionsStart(t *testing.T) {
 		"--system-prompt", "systemPrompt",
 		"--verbose", "1",
 		"--wait-for-captcha-solves=true",
-		"--x-sent-at", "2025-01-15T10:30:00Z",
 		"--x-stream-response", "true",
 	)
 
@@ -238,7 +226,6 @@ func TestSessionsStart(t *testing.T) {
 		"--system-prompt", "systemPrompt",
 		"--verbose", "1",
 		"--wait-for-captcha-solves=true",
-		"--x-sent-at", "2025-01-15T10:30:00Z",
 		"--x-stream-response", "true",
 	)
 }

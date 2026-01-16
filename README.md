@@ -35,9 +35,8 @@ stagehand sessions act \
   --id 00000000-your-session-id-000000000000 \
   --input 'click the first link on the page' \
   --frame-id frameId \
-  --options '{model: openai/gpt-5-nano, timeout: 30000, variables: {username: john_doe}}' \
+  --options '{model: openai/gpt-4o, timeout: 30000, variables: {username: john_doe}}' \
   --stream-response false \
-  --x-sent-at 2025-01-15T10:30:00Z \
   --x-stream-response true
 ```
 
