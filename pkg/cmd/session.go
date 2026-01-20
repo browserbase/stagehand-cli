@@ -55,9 +55,8 @@ var sessionsAct = requestflag.WithInnerFlags(cli.Command{
 	HideHelpCommand: true,
 }, map[string][]requestflag.HasOuterFlag{
 	"options": {
-		&requestflag.InnerFlag[any]{
+		&requestflag.InnerFlag[map[string]any]{
 			Name:       "options.model",
-			Usage:      "Model name string with provider prefix. Always use the format 'provider/model-name' (e.g., 'openai/gpt-4o', 'anthropic/claude-sonnet-4-5-20250929', 'google/gemini-2.0-flash')",
 			InnerField: "model",
 		},
 		&requestflag.InnerFlag[float64]{
@@ -142,9 +141,8 @@ var sessionsExecute = requestflag.WithInnerFlags(cli.Command{
 			Usage:      "Enable Computer Use Agent mode",
 			InnerField: "cua",
 		},
-		&requestflag.InnerFlag[any]{
+		&requestflag.InnerFlag[map[string]any]{
 			Name:       "agent-config.model",
-			Usage:      "Model name string with provider prefix. Always use the format 'provider/model-name' (e.g., 'openai/gpt-4o', 'anthropic/claude-sonnet-4-5-20250929', 'google/gemini-2.0-flash')",
 			InnerField: "model",
 		},
 		&requestflag.InnerFlag[string]{
@@ -221,9 +219,8 @@ var sessionsExtract = requestflag.WithInnerFlags(cli.Command{
 	HideHelpCommand: true,
 }, map[string][]requestflag.HasOuterFlag{
 	"options": {
-		&requestflag.InnerFlag[any]{
+		&requestflag.InnerFlag[map[string]any]{
 			Name:       "options.model",
-			Usage:      "Model name string with provider prefix. Always use the format 'provider/model-name' (e.g., 'openai/gpt-4o', 'anthropic/claude-sonnet-4-5-20250929', 'google/gemini-2.0-flash')",
 			InnerField: "model",
 		},
 		&requestflag.InnerFlag[string]{
@@ -336,9 +333,8 @@ var sessionsObserve = requestflag.WithInnerFlags(cli.Command{
 	HideHelpCommand: true,
 }, map[string][]requestflag.HasOuterFlag{
 	"options": {
-		&requestflag.InnerFlag[any]{
+		&requestflag.InnerFlag[map[string]any]{
 			Name:       "options.model",
-			Usage:      "Model name string with provider prefix. Always use the format 'provider/model-name' (e.g., 'openai/gpt-4o', 'anthropic/claude-sonnet-4-5-20250929', 'google/gemini-2.0-flash')",
 			InnerField: "model",
 		},
 		&requestflag.InnerFlag[string]{
@@ -361,7 +357,7 @@ var sessionsStart = requestflag.WithInnerFlags(cli.Command{
 	Flags: []cli.Flag{
 		&requestflag.Flag[string]{
 			Name:     "model-name",
-			Usage:    "Model name to use for AI operations. Always use the format 'provider/model-name' (e.g., 'openai/gpt-4o', 'anthropic/claude-sonnet-4-5-20250929', 'google/gemini-2.0-flash')",
+			Usage:    "Model name to use for AI operations",
 			Required: true,
 			BodyPath: "modelName",
 		},
