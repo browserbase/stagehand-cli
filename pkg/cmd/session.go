@@ -474,7 +474,7 @@ var sessionsStart = requestflag.WithInnerFlags(cli.Command{
 })
 
 func handleSessionsAct(ctx context.Context, cmd *cli.Command) error {
-	client := stagehandsdk.NewClient(getDefaultRequestOptions(cmd)...)
+	client := stagehand.NewClient(getDefaultRequestOptions(cmd)...)
 	unusedArgs := cmd.Args().Slice()
 	if !cmd.IsSet("id") && len(unusedArgs) > 0 {
 		cmd.Set("id", unusedArgs[0])
@@ -484,7 +484,7 @@ func handleSessionsAct(ctx context.Context, cmd *cli.Command) error {
 		return fmt.Errorf("Unexpected extra arguments: %v", unusedArgs)
 	}
 
-	params := stagehandsdk.SessionActParams{}
+	params := stagehand.SessionActParams{}
 
 	options, err := flagOptions(
 		cmd,
@@ -509,7 +509,7 @@ func handleSessionsAct(ctx context.Context, cmd *cli.Command) error {
 }
 
 func handleSessionsEnd(ctx context.Context, cmd *cli.Command) error {
-	client := stagehandsdk.NewClient(getDefaultRequestOptions(cmd)...)
+	client := stagehand.NewClient(getDefaultRequestOptions(cmd)...)
 	unusedArgs := cmd.Args().Slice()
 	if !cmd.IsSet("id") && len(unusedArgs) > 0 {
 		cmd.Set("id", unusedArgs[0])
@@ -519,7 +519,7 @@ func handleSessionsEnd(ctx context.Context, cmd *cli.Command) error {
 		return fmt.Errorf("Unexpected extra arguments: %v", unusedArgs)
 	}
 
-	params := stagehandsdk.SessionEndParams{}
+	params := stagehand.SessionEndParams{}
 
 	options, err := flagOptions(
 		cmd,
@@ -551,7 +551,7 @@ func handleSessionsEnd(ctx context.Context, cmd *cli.Command) error {
 }
 
 func handleSessionsExecute(ctx context.Context, cmd *cli.Command) error {
-	client := stagehandsdk.NewClient(getDefaultRequestOptions(cmd)...)
+	client := stagehand.NewClient(getDefaultRequestOptions(cmd)...)
 	unusedArgs := cmd.Args().Slice()
 	if !cmd.IsSet("id") && len(unusedArgs) > 0 {
 		cmd.Set("id", unusedArgs[0])
@@ -561,7 +561,7 @@ func handleSessionsExecute(ctx context.Context, cmd *cli.Command) error {
 		return fmt.Errorf("Unexpected extra arguments: %v", unusedArgs)
 	}
 
-	params := stagehandsdk.SessionExecuteParams{}
+	params := stagehand.SessionExecuteParams{}
 
 	options, err := flagOptions(
 		cmd,
@@ -586,7 +586,7 @@ func handleSessionsExecute(ctx context.Context, cmd *cli.Command) error {
 }
 
 func handleSessionsExtract(ctx context.Context, cmd *cli.Command) error {
-	client := stagehandsdk.NewClient(getDefaultRequestOptions(cmd)...)
+	client := stagehand.NewClient(getDefaultRequestOptions(cmd)...)
 	unusedArgs := cmd.Args().Slice()
 	if !cmd.IsSet("id") && len(unusedArgs) > 0 {
 		cmd.Set("id", unusedArgs[0])
@@ -596,7 +596,7 @@ func handleSessionsExtract(ctx context.Context, cmd *cli.Command) error {
 		return fmt.Errorf("Unexpected extra arguments: %v", unusedArgs)
 	}
 
-	params := stagehandsdk.SessionExtractParams{}
+	params := stagehand.SessionExtractParams{}
 
 	options, err := flagOptions(
 		cmd,
@@ -621,7 +621,7 @@ func handleSessionsExtract(ctx context.Context, cmd *cli.Command) error {
 }
 
 func handleSessionsNavigate(ctx context.Context, cmd *cli.Command) error {
-	client := stagehandsdk.NewClient(getDefaultRequestOptions(cmd)...)
+	client := stagehand.NewClient(getDefaultRequestOptions(cmd)...)
 	unusedArgs := cmd.Args().Slice()
 	if !cmd.IsSet("id") && len(unusedArgs) > 0 {
 		cmd.Set("id", unusedArgs[0])
@@ -631,7 +631,7 @@ func handleSessionsNavigate(ctx context.Context, cmd *cli.Command) error {
 		return fmt.Errorf("Unexpected extra arguments: %v", unusedArgs)
 	}
 
-	params := stagehandsdk.SessionNavigateParams{}
+	params := stagehand.SessionNavigateParams{}
 
 	options, err := flagOptions(
 		cmd,
@@ -663,7 +663,7 @@ func handleSessionsNavigate(ctx context.Context, cmd *cli.Command) error {
 }
 
 func handleSessionsObserve(ctx context.Context, cmd *cli.Command) error {
-	client := stagehandsdk.NewClient(getDefaultRequestOptions(cmd)...)
+	client := stagehand.NewClient(getDefaultRequestOptions(cmd)...)
 	unusedArgs := cmd.Args().Slice()
 	if !cmd.IsSet("id") && len(unusedArgs) > 0 {
 		cmd.Set("id", unusedArgs[0])
@@ -673,7 +673,7 @@ func handleSessionsObserve(ctx context.Context, cmd *cli.Command) error {
 		return fmt.Errorf("Unexpected extra arguments: %v", unusedArgs)
 	}
 
-	params := stagehandsdk.SessionObserveParams{}
+	params := stagehand.SessionObserveParams{}
 
 	options, err := flagOptions(
 		cmd,
@@ -698,14 +698,14 @@ func handleSessionsObserve(ctx context.Context, cmd *cli.Command) error {
 }
 
 func handleSessionsStart(ctx context.Context, cmd *cli.Command) error {
-	client := stagehandsdk.NewClient(getDefaultRequestOptions(cmd)...)
+	client := stagehand.NewClient(getDefaultRequestOptions(cmd)...)
 	unusedArgs := cmd.Args().Slice()
 
 	if len(unusedArgs) > 0 {
 		return fmt.Errorf("Unexpected extra arguments: %v", unusedArgs)
 	}
 
-	params := stagehandsdk.SessionStartParams{}
+	params := stagehand.SessionStartParams{}
 
 	options, err := flagOptions(
 		cmd,
