@@ -82,10 +82,6 @@ var sessionsEnd = cli.Command{
 			Usage:    "Unique session identifier",
 			Required: true,
 		},
-		&requestflag.Flag[any]{
-			Name:     "-force-body",
-			BodyPath: "_forceBody",
-		},
 		&requestflag.Flag[string]{
 			Name:       "x-stream-response",
 			Usage:      "Whether to stream the response via SSE",
@@ -521,7 +517,7 @@ func handleSessionsEnd(ctx context.Context, cmd *cli.Command) error {
 		cmd,
 		apiquery.NestedQueryFormatBrackets,
 		apiquery.ArrayQueryFormatComma,
-		ApplicationJSON,
+		EmptyBody,
 		false,
 	)
 	if err != nil {
