@@ -118,6 +118,11 @@ var sessionsExecute = requestflag.WithInnerFlags(cli.Command{
 			BodyPath: "frameId",
 		},
 		&requestflag.Flag[bool]{
+			Name:     "should-cache",
+			Usage:    "If true, the server captures a cache entry and returns it to the client",
+			BodyPath: "shouldCache",
+		},
+		&requestflag.Flag[bool]{
 			Name:     "stream-response",
 			Usage:    "Whether to stream the response via SSE",
 			BodyPath: "streamResponse",

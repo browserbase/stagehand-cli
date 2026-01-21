@@ -59,6 +59,7 @@ func TestSessionsExecute(t *testing.T) {
 		"--agent-config", "{cua: true, model: {modelName: openai/gpt-5-nano, apiKey: sk-some-openai-api-key, baseURL: https://api.openai.com/v1, provider: openai}, provider: openai, systemPrompt: systemPrompt}",
 		"--execute-options", "{instruction: 'Log in with username ''demo'' and password ''test123'', then navigate to settings', highlightCursor: true, maxSteps: 20}",
 		"--frame-id", "frameId",
+		"--should-cache=true",
 		"--stream-response=false",
 		"--x-stream-response", "true",
 	)
@@ -79,6 +80,7 @@ func TestSessionsExecute(t *testing.T) {
 		"--execute-options.highlightCursor=true",
 		"--execute-options.maxSteps", "20",
 		"--frame-id", "frameId",
+		"--should-cache=true",
 		"--stream-response=false",
 		"--x-stream-response", "true",
 	)
